@@ -1,5 +1,3 @@
-from pickle import LIST
-
 import psycopg
 from psycopg.rows import dict_row
 
@@ -22,10 +20,11 @@ def list_courses(conn):
     for c in conn.execute(LIST_SQL, (MONTH,)):
         print(f"{c['course_id']:>3}| {c['sport_name']} | {c['course_name']} | {c['class_days']} | {c['fee']:,}원"  )
 
+
 #TODO : 입력 로직 구현
 
 MEMBER_ID = 10
-COURSE_ID = 1
+COURSE_ID = 2
 
 # 수강 신청
 def enroll(conn, course_id, member_id):
